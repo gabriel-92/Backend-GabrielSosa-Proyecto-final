@@ -6,9 +6,9 @@
             E-comers
          </h1>
          <h2 class="ms-5 mb-5"> List of products</h2>
-         <div class="container  ">
-            <div class="row justify-content-center" id="paintProducts">
-               <div class="container row justify-content-center mb-5">
+         <div class="container  justify-content-center">
+            <div class="container  justify-content-center   h-25 mr-5 mb-5">
+               <div class="row justify-content-center" id="paintProducts">
                   <% products.forEach(product=>{ %>
                      <div class="card col-md-3 " style="margin: 1rem;">
                         <img style="height:350px; " src="<%= product.image %> " class="card-img-top"
@@ -33,8 +33,8 @@
                            <a href="/api/detail/<%= product.id %>" class="btn btn-primary">Detail</a>
                         </div>
                      </div>
+                     <% }); %>
                </div>
-               <% }); %>
             </div>
          </div>
          <%- include('./partials/footer.ejs') %>
