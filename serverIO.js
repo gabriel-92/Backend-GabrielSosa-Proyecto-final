@@ -9,15 +9,19 @@ const { clienteSqlIte } = require("./DB_SQLite3/SQLite3");
 const PORT = process.env.PORT || 8080;
 
 
+
 io.on('connection', async socket => {
   console.log('Nuevo cliente conectado!');
   socket.emit('messages', { messages: await clienteSqlIte.from("mensajes").select("*") });
 
   socket.on('new-message', async (data) => {
-    messages = await clienteSqlIte.from("mensajes").select("*");
-    io.sockets.emit('messages', messages = await clienteSqlIte.from("mensajes").select("*"));
-  });
-});
+    const { author, text } = data;
+    const date = new Date().toLocaleString();
+    const newMessage = { author, text, date };
+    await clienteSqlIte.from("mensajes").insert(newMessage);
+    io.sockets.emit('messages', { messages: await clienteSqlIte.from("mensajes").select("*") });
+  })
+})
 
 
 
