@@ -1,8 +1,4 @@
-// crear knex con la configuracion de la base de datos mysql
+import { knexConfig } from '../config.js'
+import crearKnex from 'knex'
 
-const config = require('../config')
-const Knex = require('knex')
-
-const knexSQL = Knex(config)
-
-module.exports = knexSQL
+export const clienteSql = crearKnex(knexConfig)

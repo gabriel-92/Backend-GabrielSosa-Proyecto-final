@@ -7,7 +7,6 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const cartRouter = require('./routes/cart');
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -17,6 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public' + '/' + 'mockup')));
+app.use(express.static(path.join(__dirname, 'public', 'js')));
 app.use(cookieParser());
 
 
@@ -42,5 +42,8 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+// const { crearTablaMensajes } = require("./crearTablaMensajes");
+// //ejecutar la función para crear la tabla mensajes
+// crearTablaMensajes();
 
 module.exports = app;

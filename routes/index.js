@@ -1,47 +1,55 @@
-const express = require('express');
-const router = express.Router();
-const Container = require('../container/Contenedor.js');
-const data = require('../public/mockup/product.json');
-const container = new Container(data);
+import express from "express";
 
+import {
+    getAll,
+    getById,
+    save,
+    deleteById,
+    updateById,
+} from "../container/Contenedor.js";
+
+import { clienteSql } from "../DB/SQL.js";
+
+const data = clienteSql.from('products').select('*')
 const auth = require('../routes/login');
-
-/* GET home page. */
+const router = express.Router();
 
 router.get('/:id?', (req, res) => {
     let { id } = req.params
     id = parseInt(id)
     if (id) {
-        container.getById(id)
+        getById(id)
             .then(data => {
                 res.render
                     ('detail', { title: "detail", product: data })
             })
     } else {
-        container.getAll()
+        getAll()
             .then(data => {
                 res.render('index', { title: "index", products: data })
             })
-    }//si los params son /addProduct, renderiza el formulario de carga de producto 
+    }//si los params son /addProduct, renderiza el formulario de carga de producto
     if (req.url === '/addProducts') {//?authorization is needed
         res.render('addProducts', { title: "addProduct", products: data })
     }
 })
-//.post recibe los datos del formulario de carga de producto y los guarda en el archivo json
+
 router.post('/addProducts', auth, (req, res) => {//?authorization is needed
+
     const { title, price, description, image, stock } = req.body
     const product = { title, price, image, description, stock }
-    container.save(product)
-        .then(data => {
-            res.redirect('/api/' + data.id)
+    save(product)
+        .then(product => {
+            res.redirect('/api')
         })
-})//.delete borra el producto del archivo json  
+})
+//.delete borra el producto por id
 
 router.delete('/:id', auth, (req, res) => {//?authorization is needed
     //!problema con el método DELETE en el navegador, si funciona con postman
     let { id } = req.params
     id = parseInt(id)
-    container.delete(id)
+    deleteById(id)
         .then(data => { res.json(data) })
 })//.get recibe el id del producto y lo busca en el archivo json, y renderiza el form de edicion de producto
 //!problema con el método PUT en el navegador, si funciona con postman
@@ -59,7 +67,7 @@ router.put('/:id', auth, (req, res,) => {//?authorization is needed
     id = parseInt(id)
     const { title, price, description, image, stock } = req.body
     const product = { title, price, image, description, stock }
-    container.update(id, product)
+    updateById(id, product)
         .then(data => {
             res.status(data, product)
             res.redirect('/api/' + id)
@@ -72,13 +80,12 @@ router.get('/detail/:id?', (req, res) => {
     let { id } = req.params
     id = parseInt(id)
     if (id) {
-        container.getById(id)
+        getById(id)
             .then(data => {
                 res.render('detail', { title: "detail", product: data })
             })
     }
 
 })
-
 
 module.exports = router;

@@ -1,13 +1,12 @@
-const config = {
-    client: 'mysql',
-    connection: {
-        host: '127.0.0.1',
-        port: 3306,
-        host: 'localhost',
-        user: 'root',
-        password: '152103386',
-        database: 'ecommerce'
-    }
+
+const dbConfig = {
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'root',
+    password: '152103386a',
+    database: 'Ecomers'
 }
-//exportar el objeto de configuracion
-module.exports = knex = require('knex')(config)
+export const knexConfig = {
+    client: 'mysql',
+    connection: dbConfig
+}
