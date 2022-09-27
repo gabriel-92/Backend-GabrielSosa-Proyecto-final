@@ -42,8 +42,14 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-// const { crearTablaMensajes } = require("./crearTablaMensajes");
-// //ejecutar la función para crear la tabla mensajes
-// crearTablaMensajes();
 
+//======= ejecutar la función para crear la tabla mensajes===//
+// const { crearTablaMensajes } = require("./crearTablaMensajes");
+// crearTablaMensajes();
+//===========================================================//
+
+//=======SAVE PRODUCTS IN FIREBASE=======================//
+//import algoritmoGuardadoAutomático from './utility/firebaseSaveProducts.js';
+//algoritmoGuardadoAutomático();
+//=======================================================//
 module.exports = app;

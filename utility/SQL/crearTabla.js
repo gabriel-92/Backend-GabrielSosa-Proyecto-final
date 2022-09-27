@@ -1,5 +1,5 @@
 
-//import { clienteSql } from './DB/SQL.js'
+import { clienteSql } from '../config/db.js'
 
 // clienteSql.schema.hasTable('products')
 //     .then(exists => {
@@ -220,3 +220,21 @@
 //         clienteSql.destroy()
 //     })
 
+//crear tabla de cart 
+clienteSql.schema.createTable('cart', (table) => {
+  table.increments('id')
+  table.integer('id_product')
+  table.integer('timestamp')
+  // table.integer('quantity')
+  //table.integer('total')
+  // table.integer('id_user')
+})
+  .then(() => {
+    console.log("table created")
+  })
+  .catch(error => {
+    console.log(error)
+  })
+  .finally(() => {
+    clienteSql.destroy()
+  })
