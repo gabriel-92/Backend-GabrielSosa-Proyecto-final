@@ -7,9 +7,6 @@ const { clienteSqlIte } = require("./configDB.js");
 import *as dotenv from 'dotenv';
 
 
-
-
-
 const PORT = dotenv.config().parsed.PORT || 8080;
 
 io.on('connection', async socket => {
@@ -25,12 +22,9 @@ io.on('connection', async socket => {
   })
 })
 
-
-
 const server = httpServer.listen(PORT, () => {
   console.log(`Server started at address http://localhost:${PORT}/api or http://localhost:${PORT}/cart`);
 });
-
 
 server.on('error', (error) => console.error(`Server Error ${error}`));
 

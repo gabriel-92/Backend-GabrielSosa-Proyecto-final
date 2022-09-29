@@ -5,10 +5,9 @@ const { productDao, cartDao } = require('../daos/index.js');
 
 
 router.post('/', (req, res) => {
-    const { id_product } = req.body;
     const cart = {
         timestamp: Date.now(),
-        id_product: [id_product],
+        products: [],
     }
     cartDao.save(cart)
         .then(data => { res.json(data) })
@@ -25,7 +24,6 @@ router.get('/:id/productos', (req, res) => {
     let { id } = req.params
     id = parseInt(id)
     productDao.getById(id)
-
     cartDao.getById(id)
         .then(data => { res.json(data) })
 })
@@ -33,17 +31,24 @@ router.get('/:id/productos', (req, res) => {
 router.post('/:id/productos', (req, res) => {
     let { id } = req.params
     let idProduct = req.body.idProduct
+    idProduct = parseInt(idProduct)
     productDao.getById(idProduct)
         .then(product => {
             cartDao.getById(id)
                 .then(cart => {
-                    cart.id_product.push(idProduct)
-                    cart.timestamp = Date.now()
-                    cartDao.updateById(id, cart)
+                    console.log(cart, 'cart');
+                    // console.log(product);
+                    Object.values = (obj) => Object.keys(obj).map(key => obj[key]);
+                    const products = Object.values(cart.products);
+                    console.log(products, 'products');
+                    products.push(product);
+                    console.log(products, 'products');
+                    cartDao.updateById(id, { products })
                         .then(data => { res.json(data) })
                 })
         })
 })
+
 router.delete('/:id/productos/:id_prod', (req, res) => {
     let { id, id_prod } = req.params
     id = parseInt(id)
@@ -51,22 +56,17 @@ router.delete('/:id/productos/:id_prod', (req, res) => {
     cartDao.getById(id)
         .then(cart => {
             const prevCount = cart.products.length
-            cart.products = cart.products.filter(product => product.id !== id_prod)
-            const newCount = cart.products.length
-            cart.timestamp = Date.now()
-            cartDao.update(id, cart)
-                .then(data => {
-                    if (prevCount > newCount) {
-                        res.json(data)
-                    } else {
-                        res.json({ error: 'product not found' })
-                    }
-                })
-                .catch(err => { res.json({ error: err }) })
+            const newProducts = cart.products.filter(product => product.id !== id_prod)
+            const newCount = newProducts.length
+            if (prevCount !== newCount) {
+                cart.products = newProducts
+                cartDao.updateById(id, cart)
+                    .then(data => { res.json(data) })
+            } else {
+                res.json({ error: 'Producto no encontrado' })
+            }
         })
-        .catch(err => { res.json({ error: err }) })
 })
-
 
 
 module.exports = router;

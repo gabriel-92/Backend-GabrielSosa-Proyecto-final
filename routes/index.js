@@ -18,7 +18,8 @@ router.get('/:id?', (req, res) => {
             .then(data => {
                 res.render('index', { title: "index", products: data })
             })
-    }//si los params son /addProduct, renderiza el formulario de carga de producto
+    }
+    //si los params son /addProduct, renderiza el formulario de carga de producto
     if (req.url === '/addProducts') {//?authorization is needed
         res.render('addProducts', { title: "add Product" })
     }
@@ -26,23 +27,25 @@ router.get('/:id?', (req, res) => {
 
 router.post('/addProducts', auth, (req, res) => {//?authorization is needed
 
-    const { title, price, description, image, stock } = req.body
-    const product = { title, price, image, description, stock }
+    const { title, price, description, image, stock, category } = req.body
+    const product = { title, price, image, description, stock, category }
     productDao.save(product)
         .then(product => {
-            res.redirect('/api')
+            res.redirect('/api/')
         })
 })
-//.delete borra el producto por id
 
+//.delete borra el producto por id
 router.delete('/:id', auth, (req, res) => {//?authorization is needed
-    //!problema con el método DELETE en el navegador, si funciona con postman
+    //!problema en el navegador con el método DELETE , si funciona con postman
     let { id } = req.params
     id = parseInt(id)
     productDao.deleteById(id)
         .then(data => { res.json(data) })
-})//.get recibe el id del producto y lo busca en el archivo json, y renderiza el form de edicion de producto
-//!problema con el método PUT en el navegador, si funciona con postman
+})
+
+//.get recibe el id del producto y lo busca en el archivo json, y renderiza el form de edicion de producto
+//!problema en el navegador con el método PUT , si funciona con postman
 router.get('/update/:id', auth, (req, res) => {//?authorization is needed
     let { id } = req.params
     id = parseInt(id)

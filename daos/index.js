@@ -13,23 +13,22 @@ switch (DB_ENGINE) {
     break
   case 'MONGO':
     classCartDao = require('./cart/cartDaoMongo.js')
-    classProductDao = require('./mongo/productDaoMongo.js')
+    classProductDao = require('./products/productDaoMongo.js')
     break
   case 'FIRESTORE':
-    //classCartDao = require('./firestore/cartDao.js')
-    //classProductDao = require('./firestore/productDao.js')
-    break
-  case 'SQLITE3':
-    //classCartDao = require('./sqlite3/cartDao.js')
-    //classProductDao = require('./sqlite3/productDao.js')
+    classCartDao = require('./cart/cartDaoFirestore.js')
+    classProductDao = require('./products/productDaoFirestore.js')
     break
   case 'MEMORY':
-  //classCartDao = require('./memory/cartDao.js')
-  //classProductDao = require('./memory/productDao.js')
-  default:
-    //classCartDao = require('./sqlite/cartDao.js')//SQL
-    //classProductDao = require('./sqlite/productDao.js')//SQL
+    classCartDao = require('./cart/cartDaoMemory.js')
+    classProductDao = require('./products/productDaoMemory.js')
     break
+  case 'FILESYSTEM':
+    classCartDao = require('./cart/cartDaoFileSystem.js')
+    classProductDao = require('./products/productDaoFileSystem.js')
+  default:
+    classCartDao = require('./cart/cartDaoFileSystem.js')
+    classProductDao = require('./products/productDaoFileSystem.js')
 }
 
 let cartDao = new classCartDao()
