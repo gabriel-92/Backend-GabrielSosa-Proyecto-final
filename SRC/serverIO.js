@@ -1,10 +1,12 @@
-const app = require('./app.js')
-const { Server: HttpServer } = require('http')
-const { Server: IOServer } = require('socket.io');
-const httpServer = new HttpServer(app)
-const io = new IOServer(httpServer)
-const { clienteSqlIte } = require("./configDB.js");
+import app from './app.js';
+import { Server } from 'http';
+import IOserver from 'socket.io';
+import { clienteSqlIte } from './configDB.js';
 import *as dotenv from 'dotenv';
+
+const httpServer = Server(app);
+const io = IOserver(httpServer);
+
 
 
 const PORT = dotenv.config().parsed.PORT || 8080;

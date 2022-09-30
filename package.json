@@ -4,8 +4,8 @@
     "private": true,
     "main": "app.js",
     "scripts": {
-        "start": "babel-node serverIO.js",
-        "dev": "nodemon serverIO.js --exec babel-node"
+        "start": "babel-node ./SRC/serverIO.js",
+        "dev": "nodemon ./SRC/serverIO.js --exec babel-node"
     },
     "dependencies": {
         "@babel/cli": "^7.18.10",

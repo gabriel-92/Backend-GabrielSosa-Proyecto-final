@@ -82,4 +82,5 @@ router.get('/detail/:id?', (req, res) => {
 
 })
 
-module.exports = router;
+
+export default router
