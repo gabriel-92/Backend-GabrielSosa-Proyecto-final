@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index';
 import cartRouter from './routes/cart';
+import productTest from './routes/test';
 
 const app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -15,6 +16,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', indexRouter);
 app.use('/cart', cartRouter);
+app.use('/product-test', productTest)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

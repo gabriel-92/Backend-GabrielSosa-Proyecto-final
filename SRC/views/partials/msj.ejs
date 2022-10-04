@@ -2,13 +2,18 @@
     <h2 class="text-primary ">Centro de mensajes</h2>
     <div>
         <form onsubmit="return addMessage(this)">
-            <input type="text" id="username" placeholder="Acá tu email">
+            <input type="text" id="email" placeholder="Acá tu email">
+            <input type="text" id="name" placeholder="Acá tu nombre">
+            <input type="text" id="surname" placeholder="Acá tu apellido">
+            <input type="text" id="age" placeholder="Acá tu edad">
+            <input type="text" id="alias" placeholder="Acá tu alias">
+            <input type="text" id="avatar" placeholder="Acá tu avatar">
             <div id="messages">
                 <div class="alert alert-success" role="alert">
                     <strong>¡Bienvenido!</strong>
                 </div>
             </div>
-            <input type="text" id="texto" placeholder="Cuéntanos algo...">
+            <input type="text" id="text" placeholder="Cuéntanos algo...">
             <input class="btn btn-dark" type="submit" value="Enviar">
         </form>
     </div>
