@@ -36,13 +36,9 @@ router.post('/:id/productos', (req, res) => {
         .then(product => {
             cartDao.getById(id)
                 .then(cart => {
-                    console.log(cart, 'cart');
-                    // console.log(product);
                     Object.values = (obj) => Object.keys(obj).map(key => obj[key]);
                     const products = Object.values(cart.products);
-                    console.log(products, 'products');
                     products.push(product);
-                    console.log(products, 'products');
                     cartDao.updateById(id, { products })
                         .then(data => { res.json(data) })
                 })

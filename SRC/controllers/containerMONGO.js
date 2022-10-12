@@ -12,7 +12,6 @@ module.exports = class Container {
     async connect() {
         try {
             await mongoose.connect(mongoConfig.url)
-            console.log('Conectado a Mongo')
         } catch (error) {
             console.log(error)
         }

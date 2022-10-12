@@ -13,10 +13,26 @@
                 <li class="nav-item">
                     <a class="nav-link active text-uppercase" href="/api/addProducts">Add products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-uppercase" href="#">Login</a>
-                </li>
+                <% if (user) { %>
+                    <li class="nav-item">
+                        <span class="text-white nav-link  ">Welcome <%= user %> </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-uppercase" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-uppercase" href="#">Profile</a>
+                    </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link active text-uppercase" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-uppercase" href="#">Register</a>
+                        </li>
+                        <% } %>
             </ul>
+
         </div>
     </nav>
     <div class="container mt-5">

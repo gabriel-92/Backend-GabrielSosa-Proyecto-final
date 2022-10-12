@@ -3,7 +3,6 @@ const socket = io.connect();
 
 
 const render = (normalizedData) => {
-    console.log(normalizedData.entities.messages);
     const messages = normalizedData.entities.messages;
     const messagesContainer = document.getElementById('messages');
     messagesContainer.innerHTML = '';
@@ -40,7 +39,6 @@ const addMessage = (e) => {
         text: document.getElementById('text').value,
         date: fecha,
     };
-    console.log(mensaje);
     socket.emit('new-message', mensaje);
     limpiarInput();
     return false;
