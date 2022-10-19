@@ -15,20 +15,17 @@
                 </li>
                 <% if (user) { %>
                     <li class="nav-item">
-                        <span class="text-white nav-link  ">Welcome <%= user %> </span>
+                        <span class="text-primary nav-link  ">Welcome <%= user.name %> </span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-uppercase" href="/logout">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-uppercase" href="#">Profile</a>
                     </li>
                     <% } else { %>
                         <li class="nav-item">
                             <a class="nav-link active text-uppercase" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-uppercase" href="#">Register</a>
+                            <a class="nav-link active text-uppercase" href="/register">Register</a>
                         </li>
                         <% } %>
             </ul>

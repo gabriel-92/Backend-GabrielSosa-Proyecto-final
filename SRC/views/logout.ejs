@@ -1,0 +1,30 @@
+<%- include('./partials/head.ejs') %>
+    <%- include('./partials/nav.ejs') %>
+
+        <body>
+            <div class="modal position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalLogin"
+                style="height: 100vh;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content rounded-4 shadow">
+                        <div class="modal-header p-5 pb-4 border-bottom-0">
+                            <h1 class="fw-bold mb-0">Bye <%= user.name %>! </h1>
+                        </div>
+                        <div class="modal-body p-5 pt-0">
+                            <h2>
+                                You have been logged out
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <script>
+                setTimeout(function () {
+                    window.location.href = '/login';
+                }, 5000);
+            </script>
+            <%- include('./partials/footer.ejs') %>
+        </body>
+
+        </html>

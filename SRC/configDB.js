@@ -33,7 +33,9 @@ export const mongoConfig = {
         useCreateIndex: true,
         serverSelectionTimeoutMS: 5000,
     },
+
 };
+
 
 //=======================================================//
 
