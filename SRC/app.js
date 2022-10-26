@@ -8,8 +8,10 @@ import flash from 'connect-flash';
 //importaciones de las rutas
 import indexRouter from './routes/index';
 import cartRouter from './routes/cart';
-import productTest from './routes/test';
 import users from './routes/users';
+import info from './routes/info';
+import productTest from './routes/test';
+import randoms from './routes/randomsRoute';
 //=======================================================//
 //importación de mongo y session
 import MongoStore from 'connect-mongo';
@@ -18,6 +20,7 @@ import passport from 'passport';
 //=======================================================//
 
 const app = express();
+
 
 app.use(session({
     store: new MongoStore({
@@ -53,7 +56,9 @@ app.use((req, res, next) => {
 app.use('/', users)
 app.use('/api', indexRouter);
 app.use('/cart', cartRouter);
+app.use('/info', info);
 app.use('/product-test', productTest)
+app.use('/api/randoms', randoms)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,40 @@
+<%- include('./partials/head.ejs') %>
+    <%-include ('./partials/nav.ejs') %>
+
+        <body>
+            <div class="container mb-5 mt-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="mb-5">Info</h1>
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    Plataforma : <%= info.plataforma %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Argumentos De Entrada : <%= info.argumentosDeEntrada %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Version NodeJs : <%= info.versionNode %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Memoria total reservada: <%= info. memoriaTotal %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Path de ejecución: <%= info.pathEjecucion %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Process id : <%= info.PID %>
+                                </h3>
+                                <h3 class="card-text">
+                                    Carpeta de ejecución : <%= info.carpetaDeEjecucion %>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('./partials/footer.ejs') %>
+        </body>
+
+        </html>
