@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 import { fork } from 'child_process';
 
-const child = fork('./SRC/routes/randoms.js');
+const child = fork('./SRC/models/randoms.js');
 
 router.get('/', async (req, res) => {
     const rounds = req.query.cant || 100000000
@@ -11,4 +11,5 @@ router.get('/', async (req, res) => {
         res.end(msg)
     })
 })
+
 module.exports = router;

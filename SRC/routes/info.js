@@ -2,7 +2,6 @@ import express from "express";
 const router = express.Router();
 
 const info = {
-    process: process.env.NODE_ENV,
     port: process.env.PORT,
     argumentosDeEntrada: process.argv.slice(2),
     directorioActual: process.cwd(),
@@ -13,7 +12,9 @@ const info = {
     PID: process.pid,
     memoriaTotal: process.memoryUsage().heapTotal,
     pathEjecucion: process.execPath,
+    numberProcesadores: require("os").cpus().length,
 }
+console.log(info)
 
 router.get('/', (req, res) => {
     res.render('info', { title: "Info", info });
