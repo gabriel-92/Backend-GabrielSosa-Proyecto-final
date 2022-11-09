@@ -1,5 +1,8 @@
 import express from "express";
 const router = express.Router();
+import compression from "compression";
+router.use(compression());
+import log from "../models/log";
 
 const info = {
     port: process.env.PORT,
@@ -14,9 +17,14 @@ const info = {
     pathEjecucion: process.execPath,
     numberProcesadores: require("os").cpus().length,
 }
-console.log(info)
 
 router.get('/', (req, res) => {
+    log.info(`${req.method}${req.url} Se ha solicitado la información del servidor`);
+    res.render('info', { title: "Info", info });
+});
+
+router.get('/gzip', compression(), (req, res) => {
+    log.info(`${req.method}${req.url} Se ha solicitado la información del servidor`);
     res.render('info', { title: "Info", info });
 });
 

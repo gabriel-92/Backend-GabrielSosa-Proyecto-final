@@ -1,15 +1,18 @@
 import express from "express";
 const router = express.Router();
 import passport from "passport";
+import User from "../models/userSchema";
 
-export const auth = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        //  ! if (req.user.role === "admin") {  no lo puedo hacer andar con el rol admin
+
+export const auth = async (req, res, next) => {
+    let id = req.user ? req.user.id : null;
+    let user = await User.findById(id);
+    if (user.role === "admin") {
         return next();
     }
     res.redirect('/login');
 }
-//}
+
 router.get("/register", (req, res) => {
     res.render("registration", { title: "Register", });
 });
@@ -35,8 +38,6 @@ router.get("/logout", (req, res, next) => {
     req.session.destroy();
     res.render("logout", { title: "Logout", });
 })
-
-
 
 
 export default router;

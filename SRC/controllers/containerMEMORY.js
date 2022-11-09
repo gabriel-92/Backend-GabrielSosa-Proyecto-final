@@ -1,3 +1,6 @@
+import log from '../models/log.js';
+
+
 module.exports = class ContainerMemory {
     constructor() {
         this.container = []
@@ -13,20 +16,19 @@ module.exports = class ContainerMemory {
             this.container.push(data)
             return data.id
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 
     async getAll() {
         try {
-            console.log(this.container)
             if (this.container) {
                 return this.container
             } else {
                 return []
             }
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 
@@ -39,7 +41,7 @@ module.exports = class ContainerMemory {
                 return { error: 'data not found' }
             }
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 
@@ -54,7 +56,7 @@ module.exports = class ContainerMemory {
                 return { error: 'data not found' }
             }
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 
@@ -69,7 +71,7 @@ module.exports = class ContainerMemory {
                 return { error: 'data not found' }
             }
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 
@@ -77,7 +79,7 @@ module.exports = class ContainerMemory {
         try {
             this.container = []
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 }

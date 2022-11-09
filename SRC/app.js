@@ -20,7 +20,8 @@ import passport from 'passport';
 //=======================================================//
 
 const app = express();
-
+require('./models/passportAuth.js');
+require('./DB/mongoDB/mongoConfig.js');
 
 app.use(session({
     store: new MongoStore({
@@ -40,7 +41,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use(flash());
 app.use(passport.initialize())

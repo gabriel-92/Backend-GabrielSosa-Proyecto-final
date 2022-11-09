@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+import log from "../models/log";
 
 module.exports = class ContainerFilesystem {
     constructor(filename) {
@@ -20,7 +21,7 @@ module.exports = class ContainerFilesystem {
             await fs.promises.writeFile(this.data, JSON.stringify(dataParse, null, 2));
             return newProduct;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
     async getAll() {
@@ -28,7 +29,7 @@ module.exports = class ContainerFilesystem {
             const data = await fs.promises.readFile(this.data, 'utf-8');
             return JSON.parse(data);
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -39,7 +40,7 @@ module.exports = class ContainerFilesystem {
             const product = dataParse.find(product => product.id === id);
             return product;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
     async deleteById(id) {
@@ -50,7 +51,7 @@ module.exports = class ContainerFilesystem {
             await fs.promises.writeFile(this.data, JSON.stringify(newData, null, 2));
             return newData;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -67,7 +68,7 @@ module.exports = class ContainerFilesystem {
             await fs.promises.writeFile(this.data, JSON.stringify(newData, null, 2));
             return newData;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 }

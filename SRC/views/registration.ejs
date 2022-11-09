@@ -35,10 +35,16 @@
                                     placeholder="Address">
                                 <label for="address">Address</label>
                             </div>
-                            <div class="form-floating mb-3 d-flex gap-3">
-                                <button class="w-50 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Signup</button>
-                                <a href="/login" class="w-50 mb-2 btn btn-lg rounded-3 btn-secondary">Log in</a>
-                            </div>
+                            <% if (locals.signupMessage[0]) { %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= locals.signupMessage %>
+                                </div>
+                                <% } %>
+                                    <div class="form-floating mb-3 d-flex gap-3">
+                                        <button class="w-50 mb-2 btn btn-lg rounded-3 btn-primary"
+                                            type="submit">Signup</button>
+                                        <a href="/login" class="w-50 mb-2 btn btn-lg rounded-3 btn-secondary">Log in</a>
+                                    </div>
                         </form>
                     </div>
                 </div>

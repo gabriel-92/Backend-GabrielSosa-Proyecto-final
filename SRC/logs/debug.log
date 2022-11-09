@@ -1,0 +1,23 @@
+{"level":"error","time":"2022-11-09T23:26:16.476Z","message":"User not found"}
+{"level":"info","time":"2022-11-09T23:26:35.086Z","message":"GET/ user: gaby.cab.lg@gmail.com"}
+{"level":"info","time":"2022-11-09T23:27:48.251Z","message":"GET/ user: guest"}
+{"level":"error","time":"2022-11-09T23:27:52.488Z","message":"User not found"}
+{"level":"info","time":"2022-11-09T23:35:43.773Z","message":"GET/ user: gaby.cab.lg@gmail.com"}
+{"level":"info","time":"2022-11-09T23:40:10.119Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:40:15.887Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:40:17.060Z","message":"GET/ user: gaby.cab.lg@gmail.com"}
+{"level":"info","time":"2022-11-09T23:40:18.972Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:41:50.617Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:41:55.844Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:43:30.959Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:43:31.313Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:49:41.142Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:49:41.317Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:51:04.443Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:51:09.641Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:51:53.207Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:51:53.487Z","message":"DB is connected"}
+{"level":"info","time":"2022-11-09T23:51:53.690Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:53:11.672Z","message":"Server started at address http://localhost:3000/api or http://localhost:3000/cart"}
+{"level":"info","time":"2022-11-09T23:53:11.853Z","message":"Nuevo cliente conectado!"}
+{"level":"info","time":"2022-11-09T23:53:12.061Z","message":"DB is connected"}

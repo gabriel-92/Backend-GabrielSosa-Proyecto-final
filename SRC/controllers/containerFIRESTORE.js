@@ -1,5 +1,6 @@
 import admin from 'firebase-admin';
 import { firebaseConfig } from '../configDB.js';
+import log from '../models/log.js';
 
 admin.initializeApp({
     credential: admin.credential.cert(firebaseConfig),
@@ -25,7 +26,7 @@ module.exports = class Container {
             }));
             return output;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -43,7 +44,7 @@ module.exports = class Container {
             const item = output.filter((item) => item.id === id);
             return item[0];
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -54,7 +55,7 @@ module.exports = class Container {
             await this.collection.doc(id.toString()).set(data);
             return data;
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -63,7 +64,7 @@ module.exports = class Container {
             await this.collection.doc(id.toString()).delete();
             return { id };
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 
@@ -71,7 +72,8 @@ module.exports = class Container {
         try {
             const doc = await this.collection.doc(id.toString()).get();
             if (!doc.exists) {
-                console.log('No such document!');
+
+                log.info('No such document!');
             } else {
                 for (const key in item) {
                     if (item[key] === undefined) {
@@ -84,7 +86,7 @@ module.exports = class Container {
                 return item;
             }
         } catch (error) {
-            console.log(error);
+            log.error(error);
         }
     }
 }

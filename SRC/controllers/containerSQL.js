@@ -1,4 +1,5 @@
 import { clienteSql } from '../configDB.js'
+import log from '../models/log.js'
 
 
 module.exports = class Container {
@@ -12,7 +13,7 @@ module.exports = class Container {
             const allParsed = JSON.parse(JSON.stringify(allProCART))
             return allParsed
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
     async getById(id) {
@@ -22,7 +23,7 @@ module.exports = class Container {
             const byIdParsed = dataParsed[0]
             return byIdParsed
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
     async save(product) {
@@ -34,7 +35,7 @@ module.exports = class Container {
             const save = await clienteSql.insert(newProCart).into(this.table)
             return save
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
     async updateById(id, productUpdate) {
@@ -42,7 +43,7 @@ module.exports = class Container {
             const updateProCART = await clienteSql.from(this.table).where('id', id).update(productUpdate)
             return updateProCART
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
     async deleteById(id) {
@@ -50,7 +51,7 @@ module.exports = class Container {
             const deleteProCART = await clienteSql.from(this.table).where('id', id).del()
             return deleteProCART
         } catch (error) {
-            console.log(error)
+            log.error(error)
         }
     }
 }
