@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "private": true,
     "main": "app.js",
+    "engines": {
+        "node": "18.x"
+    },
     "scripts": {
         "start": "babel-node ./SRC/serverIO.js",
         "dev": "nodemon ./SRC/serverIO.js --exec babel-node",
