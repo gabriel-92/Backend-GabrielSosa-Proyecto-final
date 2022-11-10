@@ -7,6 +7,11 @@ import User from "../models/userSchema";
 export const auth = async (req, res, next) => {
     let id = req.user ? req.user.id : null;
     let user = await User.findById(id);
+    if (!user) {
+        // res.status(401).json({ error: "No autorizado" });
+        res.redirect("/login");
+        return
+    }
     if (user.role === "admin") {
         return next();
     }

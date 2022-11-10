@@ -5,7 +5,9 @@
     "main": "app.js",
     "scripts": {
         "start": "babel-node ./SRC/serverIO.js",
-        "dev": "nodemon ./SRC/serverIO.js --exec babel-node"
+        "dev": "nodemon ./SRC/serverIO.js --exec babel-node",
+        "build": "0x server.js -p 3000",
+        "test": "node autocanon.js"
     },
     "dependencies": {
         "@babel/cli": "^7.18.10",

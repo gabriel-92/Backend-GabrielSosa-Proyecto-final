@@ -18,11 +18,14 @@ import MongoStore from 'connect-mongo';
 import session from 'express-session';
 import passport from 'passport';
 //=======================================================//
-
-const app = express();
+//importaciones de los modelos
+import log from './models/log.js';
 require('./models/passportAuth.js');
+//=======================================================//
+//importación de mongoose para la conexión a la base de datos en todo el proyecto
 require('./DB/mongoDB/mongoConfig.js');
-
+//=======================================================//
+const app = express();
 app.use(session({
     store: new MongoStore({
         mongoUrl: process.env.MONGO_URI,
@@ -52,6 +55,13 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(logger('short', {
+    stream: {
+        write: (message) => {
+            log.info(message.trim());
+        }
+    }
+}));
 
 app.use('/', users)
 app.use('/api', indexRouter);
@@ -65,6 +75,7 @@ app.use(function (req, res, next) {
     const createError = require('http-errors');
     let err = new Error('Not Found');
     next(createError(404) || err);
+    log.error(err);
 });
 
 // error handler
@@ -76,6 +87,7 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error', { title: "Error" });
+    log.error(err);
 });
 
 
