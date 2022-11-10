@@ -1,24 +1,24 @@
 import express from "express";
 const router = express.Router();
-const { faker } = require('@faker-js/faker')
+//const { faker } = require('@faker-js/faker')
 
 
 const id = Math.floor(Math.random() * 1000);
 const stock = Math.floor(Math.random() * 50) * 50;
 const PRODUCT_RANDOM = 5;
 
-function crearCombinacionAlAzar(id) {
-    const combination = {
-        id: id,
-        title: faker.commerce.productName(),
-        price: faker.commerce.price(),
-        image: faker.image.imageUrl(200, 200, 'image', true),
-        description: faker.commerce.productDescription(),
-        stock: stock,
-        category: faker.commerce.department(),
-    }
-    return combination
-}
+// function crearCombinacionAlAzar(id) {
+//     const combination = {
+//         id: id,
+//         title: faker.commerce.productName(),
+//         price: faker.commerce.price(),
+//         image: faker.image.imageUrl(200, 200, 'image', true),
+//         description: faker.commerce.productDescription(),
+//         stock: stock,
+//         category: faker.commerce.department(),
+//     }
+//     return combination
+// }
 
 function crearProductosAlAzar() {
     const products = [];
