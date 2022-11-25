@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const avatarRandom = () => {
+    const random = Math.floor(Math.random() * 9);
+    return `https://randomuser.me/api/portraits/lego/${random}.jpg`;
+};
+
 
 const userSchema = new mongoose.Schema({
     name: { type: String },
@@ -8,7 +13,10 @@ const userSchema = new mongoose.Schema({
     email: { type: String },
     password: { type: String },
     address: { type: String },
-    role: { type: String, default: "user" }
+    role: { type: String, default: "user" },
+    // avatar: { type: String, default: avatarRandom() },
+    profilePic: { type: String, },
+    phone: { type: String },
 }, { timestamps: true });
 
 

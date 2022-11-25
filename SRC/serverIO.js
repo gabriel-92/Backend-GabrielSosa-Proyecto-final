@@ -35,7 +35,6 @@ if (MODE === 'CLUSTER' && cluster.isPrimary) {
   server.on('error', (err) => { log.error(err) })
 }
 
-
 const messagesSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now },
   author: {

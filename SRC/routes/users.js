@@ -2,13 +2,13 @@ import express from "express";
 const router = express.Router();
 import passport from "passport";
 import User from "../models/userSchema";
-
+import upload from "../utility/upload/upload";
+import log from "../models/log.js";
 
 export const auth = async (req, res, next) => {
     let id = req.user ? req.user.id : null;
     let user = await User.findById(id);
     if (!user) {
-        // res.status(401).json({ error: "No autorizado" });
         res.redirect("/login");
         return
     }
@@ -25,7 +25,7 @@ router.get("/register", (req, res) => {
 router.post('/register', passport.authenticate('localRegister', {
     successRedirect: '/api',
     failureRedirect: '/register',
-    failureFlash: true
+    failureFlash: true,
 }));
 
 router.get("/login", (req, res) => {

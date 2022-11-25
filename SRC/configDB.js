@@ -26,7 +26,7 @@ export const clienteSql = knex(knexConfig);
 //!============== Database MONGO connection================//
 
 export const mongoConfig = {
-    url: process.env.MONGO_URI || 'mongodb://localhost:27017/test',
+    url: process.env.MONGO_URI,
     options: {
         useNewUrlParser: true,
         useUnifiedTopology: true,

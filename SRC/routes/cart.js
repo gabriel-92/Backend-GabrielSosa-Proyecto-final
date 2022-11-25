@@ -4,6 +4,16 @@ import { Router } from 'express';
 const router = Router();
 
 
+//ruta par generar la compra 
+router.post('/cart', async (req, res) => {
+    const { id } = req.body;
+    const product = await productDao.getProductById(id);
+    const cart = await cartDao.createCart(product);
+
+    res.json(cart);
+});
+
+
 router.post('/', (req, res) => {
     const cart = {
         timestamp: Date.now(),

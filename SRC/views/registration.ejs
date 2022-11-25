@@ -35,6 +35,16 @@
                                     placeholder="Address">
                                 <label for="address">Address</label>
                             </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" id="phone" name="phone"
+                                    placeholder="Phone">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="file" class="form-control rounded-3" id="profilePic" name="profilePic"
+                                    placeholder="Profile picture">
+                                <label for="profilePic">Profile picture</label>
+                            </div>
                             <% if (locals.signupMessage[0]) { %>
                                 <div class="alert alert-danger" role="alert">
                                     <%= locals.signupMessage %>

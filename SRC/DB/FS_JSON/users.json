@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "636d2527b6b74cda46a7068c"
+  },
+  "role": "admin",
+  "email": "gaby.cab.lg@gmail.com",
+  "password": "$2b$10$/kvrdGY0lmOQ4p4LSIF.leAS/wcqHCCJA7EqKuD0afLh6f8PRBrIi",
+  "name": "Gabriel",
+  "address": "Via della Acacie 12",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668097319802"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668097319802"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636d28cb2b0a0f9e1c1d3778"
+  },
+  "role": "admin",
+  "email": "test@test.com",
+  "password": "$2b$10$wWngkHhZfOrBbIPnz.Bb6OlojGBBcgvY3Zr6akkWnGWWus5A6Rqj6",
+  "name": "guest",
+  "address": "alzaia naviglio pavese 192",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668098251832"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668098251832"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636eab1e5568a8a656cdc515"
+  },
+  "role": "user",
+  "email": "rodrigo@email.com",
+  "password": "$2b$10$7Eexbn/E0JuOycLc.jd0huBQ2AUaHAAKL36N2XmNHmfeO3iNnaOkW",
+  "name": "Rodrigo",
+  "address": "Castellanos 1775",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668197150682"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668197150682"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637fe0bfaa2c555328bbb590"
+  },
+  "role": "user",
+  "profilePic": "https://randomuser.me/api/portraits/lego/2.jpg",
+  "email": "gaby.cab.lg@gmail.com322323",
+  "password": "$2b$10$AugWUaWXBmqh7YpWo9NWxe.TaF41gayDMTFWLR1t4ThiW1vOmLywu",
+  "name": "Gabriel",
+  "address": "Via della Acacie 12",
+  "phone": "3487042341",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669324991426"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669324991426"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637fe2044cf76389826d54ce"
+  },
+  "role": "user",
+  "profilePic": "https://randomuser.me/api/portraits/lego/8.jpg",
+  "email": "gaby.cab.lg@gmail.comqwqwqwqw",
+  "password": "$2b$10$LYHzbNNyO7SBxRPuhIp94.gOqK1wQjgR9j3wgqDFusbVi8L5bOaMe",
+  "name": "Gabriel",
+  "address": "Via della Acacie 12",
+  "phone": "3487042341",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669325316810"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669325316810"
+    }
+  },
+  "__v": 0
+}]

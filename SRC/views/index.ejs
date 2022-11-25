@@ -5,40 +5,41 @@
          <h1 class=" mt-3 text-center">
             E-comers
          </h1>
-         <h2 class="ms-5 mb-5"> List of products
-         </h2>
-         <div class="container  justify-content-center">
-            <div class="container  justify-content-center   h-25 mr-5 mb-5">
-               <div class="row justify-content-center" id="paintProducts">
-                  <% products.forEach(product=>{ %>
-                     <div class="card col-md-3 " style="margin: 1rem;">
-                        <img style="height:350px; " src="<%= product.image %> " class="card-img-top"
-                           alt=" product photo<%= product.title %>" }">
-                        <div class="card-body ">
-                           <div style="height:100px;" class="card-title">
-                              <h5>
-                                 <%= product.title %>
-                              </h5>
-                           </div>
-                           <div class="cart-text overflow-scroll"
-                              style="height: 10rem;overflow: auto;scroll-behavior: smooth;">
-                              <p class=" border  rounded-2 p-3 ">
-                                 <%= product.description %>
+         <%- include('./partials/msj.ejs') %>
+            <h2 class="ms-5 mb-5"> List of products
+            </h2>
+            <div class="container  justify-content-center">
+               <div class="container  justify-content-center   h-25 mr-5 mb-5">
+                  <div class="row justify-content-center" id="paintProducts">
+                     <% products.forEach(product=>{ %>
+                        <div class="card col-md-3 " style="margin: 1rem;">
+                           <img style="height:350px; " src="<%= product.image %> " class="card-img-top"
+                              alt=" product photo<%= product.title %>" }">
+                           <div class="card-body ">
+                              <div style="height:100px;" class="card-title">
+                                 <h5>
+                                    <%= product.title %>
+                                 </h5>
+                              </div>
+                              <div class="cart-text overflow-scroll"
+                                 style="height: 10rem;overflow: auto;scroll-behavior: smooth;">
+                                 <p class=" border  rounded-2 p-3 ">
+                                    <%= product.description %>
+                                 </p>
+                              </div>
+                              <p class="fw-bold">
+                                 Price: <%= product.price %> $
                               </p>
                            </div>
-                           <p class="fw-bold">
-                              Price: <%= product.price %> $
-                           </p>
+                           <div class="card-footer d-flex justify-content-between">
+                              <a href="/api/detail/<%= product.id %>" class="btn btn-primary">Detail</a>
+                           </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between">
-                           <a href="/api/detail/<%= product.id %>" class="btn btn-primary">Detail</a>
-                        </div>
-                     </div>
-                     <% }); %>
+                        <% }); %>
+                  </div>
                </div>
             </div>
-         </div>
-         <%- include('./partials/msj.ejs') %>
+
             <%- include('./partials/footer.ejs') %>
                <script src="/js/main.js"></script>
       </body>
