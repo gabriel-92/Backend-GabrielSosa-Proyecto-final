@@ -63,7 +63,6 @@ passport.use('localRegister', new LocalStrategy({
         newUser.role = "user";
         newUser.phone = req.body.phone;
         newUser.profilePic = req.file ? req.file.filename : "default.png";
-        // newUser.avatar = req.file ? req.file.filename : "default.png";
         await newUser.save();
         transporterDefault.sendMail(mailOptions, (error, info) => {
             if (error) {
