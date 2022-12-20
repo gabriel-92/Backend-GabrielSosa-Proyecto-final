@@ -9,7 +9,8 @@
     "scripts": {
         "start": "babel-node ./SRC/serverIO.js",
         "dev": "nodemon ./SRC/serverIO.js --exec babel-node",
-        "heroku-postbuild": "babel ./SRC/serverIO.js --out-dir ./dist --copy-files"
+        "heroku-postbuild": "babel ./SRC/serverIO.js --out-dir ./dist --copy-files",
+        "test": "mocha server.test.js"
     },
     "dependencies": {
         "@babel/cli": "^7.18.10",
@@ -44,6 +45,11 @@
         "pino": "^8.7.0",
         "socket.io": "^4.5.1",
         "sqlite3": "^5.1.1",
-        "twilio": "^3.83.3"
-    }
+        "twilio": "^3.83.3",
+        "chai": "4.3.6",
+        "mocha": "10.0.0",
+        "supertest": "6.2.4",
+        "axios": "0.27.2"
+    },
+    "type": "module"
 }
